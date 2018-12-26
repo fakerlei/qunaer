@@ -1,26 +1,24 @@
 <template>
-<div>
- <head-index></head-index>
-</div>
- 
+  <div>
+  	<myheader />
+  </div>
 </template>
 
 <script>
-	import headIndex from "./myheader"
+	import myheader from './myheader'
 export default {
-  name: 'home',
-  data(){
-  	return {
-  		icons:[]
-  	}
+  name: '',
+  data () {
+    return {
+      
+    }
   },
- components:{
- 	headIndex
- }
+   components:{
+ 	myheader
+ },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
