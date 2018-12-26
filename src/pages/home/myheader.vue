@@ -7,18 +7,25 @@
     </div>
     
     <div class="hello_right">
-    	<span class="hello_right_city">城市</span>
+    	<span class="hello_right_city">{{city}}</span>
     </div>
+     
   </div>
+
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: '',
   data () {
     return {
       
     }
+  },
+  computed:{
+  	 ...mapState(['city'])
+  	
   }
 }
 </script>
