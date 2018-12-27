@@ -7,6 +7,8 @@ import '@/assets/reset.css'
 import '@/assets/border.css'
 import '@/assets/font/iconfont.css'
 import store from '@/store'
+import axios from 'axios'
+Vue.prototype.$http= axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

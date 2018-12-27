@@ -7,7 +7,9 @@
     </div>
     
     <div class="hello_right">
-    	<span class="hello_right_city">{{city}}</span>
+    	<span class="hello_right_city">
+    		<router-link to="/city">{{city}}</router-link>
+    	</span>
     </div>
      
   </div>
@@ -62,6 +64,7 @@ export default {
   		width: 1.11rem;
   		margin-left: 0.23rem;
   		position: relative;
+  		color: #cafdff;
   		.hello_right_city:after{
   			content: '';
   			position: absolute;
@@ -73,6 +76,9 @@ export default {
   	    border-right: .14rem solid transparent;
   	    border-top: .14rem solid #fff;
   		}
+  		 a{
+  	    color: #cafdff;	
+  	    }
   	}
   }
 </style>

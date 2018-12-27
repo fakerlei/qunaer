@@ -1,32 +1,28 @@
 <template>
   <div>
   	<myheader />
-  	<Swiper :imgUrl="imgUrl"/>
-  	<Navbar :icons="icons"/>
+    <citylist />
   </div>
 </template>
 
 <script>
-	import myheader from './myheader'
-	import Swiper from './swiper'
-	import Navbar from './navbar'
+import myheader from './myheader'
+import citylist from './citylist'
 export default {
   name: '',
   data () {
     return {
-      imgUrl:[],
-      icons:[]
+      cityList:[]
     }
   },
 		 components:{
 		 	myheader,
-		 	Swiper,
-		 	Navbar
+		 	citylist
 		 },
  		 created(){
 			this.$http.get("http://localhost:3000/data").then((res)=>{
-				this.imgUrl=res.data.imglist
-				this.icons=res.data.icons
+				this.cityList=res.data.city
+                console.log(res.data.city)
 			})
 		}
  
