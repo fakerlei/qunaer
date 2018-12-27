@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
+=======
+   
+>>>>>>> origin/20181226-index-caolei
     <router-view/>
   </div>
 </template>

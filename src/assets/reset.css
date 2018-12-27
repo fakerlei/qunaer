@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/20181226-index-caolei
 @charset "utf-8";
 html {
     background-color: #fff;
     color: #000;
+<<<<<<< HEAD
     font-size: 12px
+=======
+    font-size: 12px;
+>>>>>>> origin/20181226-index-caolei
 }
  
 body,
@@ -215,4 +223,9 @@ hr {
 a {
     color: #25a4bb;
     text-decoration: none;
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> origin/20181226-index-caolei
