@@ -56,7 +56,9 @@ import '../../../node_modules/swiper/dist/css/swiper.css'
 </script>
 
 <style lang="scss" scped>
-.icon_container{
+.navbar{
+	background: #fff;
+ .icon_container{
 	height: 3.82rem;
 	display: flex;
 	flex-wrap: wrap;
@@ -76,8 +78,7 @@ import '../../../node_modules/swiper/dist/css/swiper.css'
 	 	overflow: hidden;
 	 	white-space: nowrap
 	 }	
-	}
-	
-}
-	
+	}	
+ }
+}	
 </style>

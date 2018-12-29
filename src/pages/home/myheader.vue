@@ -42,6 +42,7 @@ export default {
   	align-items: center;
   	color: #cafdff;
   	.search{
+  		flex: 1;
   		width: 5.38rem;
   		height: 0.61rem;
   		background: #ffffff;
@@ -61,14 +62,13 @@ export default {
   		color: #cafdff;
   	}
   	.hello_right{
-  		width: 1.11rem;
-  		margin-left: 0.23rem;
   		position: relative;
   		color: #cafdff;
+  		padding: 0 .5rem 0 .2rem;  	
   		.hello_right_city:after{
   			content: '';
   			position: absolute;
-  		  top: .1rem;
+  		  top: .07rem;
   		  right: .2rem;
   	    width: 0;
   	    height:0;
@@ -76,9 +76,11 @@ export default {
   	    border-right: .14rem solid transparent;
   	    border-top: .14rem solid #fff;
   		}
-  		 a{
+  		.hello_right_city{
+  			a{
   	    color: #cafdff;	
   	    }
+  		} 		 
   	}
   }
 </style>

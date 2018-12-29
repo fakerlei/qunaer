@@ -44,6 +44,7 @@ export default{
 
 <style lang="scss" scoped>
 	.swiper-container{
+		
 		img{
 			max-width: 100%;
 			height:2rem;

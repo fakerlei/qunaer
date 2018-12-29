@@ -1,28 +1,32 @@
 <template>
   <div>
   	<myheader />
-    <citylist />
+    <citylist :cityList="cityList" :hotcity="hotcity" />
+    <sidebar :cityList="cityList" />
   </div>
 </template>
 
 <script>
 import myheader from './myheader'
 import citylist from './citylist'
+import sidebar from './sidebar'
 export default {
   name: '',
   data () {
     return {
-      cityList:[]
+      cityList:[],
+      hotcity:[]
     }
   },
 		 components:{
 		 	myheader,
-		 	citylist
+		 	citylist,
+		 	sidebar
 		 },
  		 created(){
 			this.$http.get("http://localhost:3000/data").then((res)=>{
 				this.cityList=res.data.city
-                console.log(res.data.city)
+				this.hotcity=res.data.hotcity
 			})
 		}
  

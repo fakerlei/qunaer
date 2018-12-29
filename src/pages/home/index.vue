@@ -3,6 +3,7 @@
   	<myheader />
   	<Swiper :imgUrl="imgUrl"/>
   	<Navbar :icons="icons"/>
+  	<Banner :banner="banner"/>
   </div>
 </template>
 
@@ -10,23 +11,27 @@
 	import myheader from './myheader'
 	import Swiper from './swiper'
 	import Navbar from './navbar'
+	import Banner from './banner'
 export default {
   name: '',
   data () {
     return {
       imgUrl:[],
-      icons:[]
+      icons:[],
+      banner:[]
     }
   },
 		 components:{
 		 	myheader,
 		 	Swiper,
-		 	Navbar
+		 	Navbar,
+		 	Banner
 		 },
  		 created(){
 			this.$http.get("http://localhost:3000/data").then((res)=>{
 				this.imgUrl=res.data.imglist
 				this.icons=res.data.icons
+				this.banner=res.data.banner
 			})
 		}
  

@@ -1,7 +1,7 @@
 <template>
 <div class="city_header">
 	<div class="city_title">
-		<i class="iconfont">&#xe641;</i>
+		<i @click="goBack" class="iconfont">&#xe641;</i>
 		<a class="city_title_item">城市选择</a>
 	</div>
 	<div class="city_change">
@@ -13,23 +13,31 @@
 
 <script>
 	export default{
-		
+		methods:{
+			goBack(){
+				this.$router.go(-1)
+			}
+		}
 	}
 </script>
 
 <style lang="scss" scoped>
   .city_header{
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
   	height: 1.55rem;
   	background: #01bdda;
   	.city_title{
   		height: .75rem;
-  		border-bottom: 1px solid #ffffff;
+  		border-bottom: 0.5px solid #ffffff;
   		.city_title_item{
   			line-height: .9rem;
   			text-align: center;
   			color:#dfffff;
   			font-size: 20px;
-  			margin: 0 2.3rem;
+  			margin: 0 2.15rem;
   		}
   		.iconfont{
   			color:#dfffff;
