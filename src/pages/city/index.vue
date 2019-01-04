@@ -1,6 +1,6 @@
 <template>
-  <div>
-  	<myheader />
+  <div class="city_index">
+  	<myheader :cityList="cityList"/>
     <citylist :cityList="cityList" :hotcity="hotcity" />
     <sidebar :cityList="cityList" />
   </div>
@@ -34,6 +34,17 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style scoped lang="scss">
+.city_index{
+	display: flex;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	citylist{
+		overflow: hidden;
+		flex: 1;
+	}
+}
 </style>

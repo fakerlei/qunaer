@@ -1,5 +1,6 @@
 <template>
-	<div class="header">
+<div class="header wrapper" ref="wrapper">	
+	<div class="contain">
 		<div class="header_title">
 		 <span>热门城市</span>	
 		</div>	
@@ -21,10 +22,12 @@
 			 </ul>		
 		</div>		
 	</div>
+</div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import BScroll from 'better-scroll'
+import {mmapMutations} from 'vuex'
 	export default{
 		props:["cityList","hotcity"],
 		data(){
@@ -35,14 +38,16 @@ import {mapMutations} from 'vuex'
 	     methods:{	     
 	         handleCity(item){
 	         	this.$router.go(-1)
-	         	this.changeCity(item)
+	         	 this.changeCity(item)
 	         },
-	         ...mapMutations(["changeCity"])
+	        ...mapMutations(["changeCity"])
 	     },
 	     mounted(){
-
-	     }
+            this.$nextTick(() => {
+          	  this.scroll = new BScroll(this.$refs.wrapper, {})
+	     })
 	}
+}
 </script>
 
 <style lang="scss" scoped>

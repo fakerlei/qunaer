@@ -1,21 +1,62 @@
 <template>
+<div>
 <div class="city_header">
 	<div class="city_title">
 		<i @click="goBack" class="iconfont">&#xe641;</i>
 		<a class="city_title_item">城市选择</a>
 	</div>
 	<div class="city_change">
-		<h1 class="city_change_left">境内</h1>
-		<h1 class="city_change_right">境外.港澳台</h1>
+		<input type="text" @input="searchCity" placeholder="请输入搜索字" value="" />
 	</div>
+	
 </div>
+    <div class="showmessage" @click="hidden_search" v-show="show_search">
+    	<li>{{filterResult}}</li>
+    </div>
+</div> 
 </template>
 
 <script>
 	export default{
+		props:["cityList"],
+		data(){
+			return{
+			show_search:false,
+			filterResult:[]
+			}
+		},
 		methods:{
 			goBack(){
 				this.$router.go(-1)
+			},
+			searchCity(e){
+				var value = e.target.value
+				this.show_search = true
+				if(!e.target.value){
+				this.show_search = false
+				}
+			this.filterResult = this.result.filter((item)=>{
+				if(item.name.indexOf(value) != -1){
+					return true
+				}
+			})
+			},
+			hidden_search(){
+				this.show_search = false
+			}
+		},
+		computed:{
+			result(){
+				var result = []
+				 this.cityList.forEach((item)=>{
+					console.log(item.cityList)
+					for(var i in item.cityList){
+						result.push({
+							"name":item.cityList[i]
+						})
+					}
+				})
+				 return result
 			}
 		}
 	}
@@ -46,28 +87,25 @@
   		}
   	}
   	.city_change{
-  	border-radius: 2px;
-  	width: 5.5rem;
   	height: .46rem;
-  	border: 1px solid #ffffff;
-  	margin-left: 1rem;
-  	margin-top:.15rem;
-  	overflow: hidden;
-  	.city_change_left{
-  		float: left;
-  		line-height: .46rem;
-  		width: 50%;
+  	display: flex;
+  	padding: 0 5px;
+  	input{        
+  		width: 100%;
   		text-align: center;
-  		background: #ffffff;
-  		color: #abfff6;
-  	}
-  	.city_change_right{
-  		float: left;
-  		line-height: .46rem;
-  		width: 50%;
-  		text-align: center;
-  		color: #abfff6;
+  		margin-top: 5px;
+  		height: .6rem;
+  		border-radius: 3px; 		
   	}
   	}
   }
+	.showmessage{
+	z-index: 3;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 1.55rem;
+	background: #f7f7f7;
+}
 </style>
