@@ -1,9 +1,8 @@
 <template>
     <div class="swiper-container gallary" @click="gallaryClose">
     <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(index,item) in list" :key="index" >
-      		<img class="gallary-img" :src="item" />
-      		{{list}}
+        <div class="swiper-slide" v-for="(item,index) in list" :key="index" >
+      		<img @click.stop class="gallary-img" :src="item" />
         </div>
     </div>
 	</div>	
@@ -25,30 +24,24 @@
 		        	}
 		        },
 		        created(){
-		        	 console.log(this.imglist)
+		        	
 		        },
-		/*		mounted(){
+				mounted(){
 				this.$nextTick(()=>{
 				   var mySwiper = new Swiper ('.swiper-container', {
-	               loop: true, // 循环模式选项
-	               autoplay: {
-				    delay: 1000,
-				    disableOnInteraction: false,
-				    },
+	               loop: true,
+	                observer:true
 	                })
 				}) 			        
-		},*/
+		},
 		watch:{
-			imglist(){
-			/*	this.$nextTick(()=>{
+			list(){
+			this.$nextTick(()=>{
 			   var mySwiper = new Swiper ('.swiper-container', {
-               loop: true, // 循环模式选项
-               autoplay: {
-			    delay: 1000,
-			    disableOnInteraction: false,
-			    },
+               loop: true,
+                observer:true
                 })
-				})*/
+				})
 			}
 		}
 	}
@@ -64,7 +57,7 @@
   	background: #969896;
   	.gallary-img{
   	    max-width: 100%;
-  		height: 80%;
+  		height: 70%;
   		position: absolute;
   		right: 0;
 	  	top: 0;

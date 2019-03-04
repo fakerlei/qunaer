@@ -1,11 +1,13 @@
 <template>
   <div class="city_index">
   	<myheader :cityList="cityList"/>
-    <citylist :cityList="cityList" :hotcity="hotcity" />
-    <sidebar :cityList="cityList" />
+    <citylist :cityList="cityList" 
+    	:hotcity="hotcity"
+    	ref="list" />
+    <sidebar :cityList="cityList" 
+    	       @changgecity="handleChangeCity"></sidebar>
   </div>
 </template>
-
 <script>
 import myheader from './myheader'
 import citylist from './citylist'
@@ -28,7 +30,12 @@ export default {
 				this.cityList=res.data.city
 				this.hotcity=res.data.hotcity
 			})
-		}
+		},
+	  methods:{
+	  	handleChangeCity(index){
+			 this.$refs.list.scrollCity(index)
+		 }
+	  }
  
 }
 </script>

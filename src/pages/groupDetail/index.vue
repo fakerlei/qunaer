@@ -1,6 +1,9 @@
 <template>
   <div>
-   <img src="//img1.qunarzz.com/sight/p0/1710/6f/6ff979b8c0f1f633a3.img.jpg_600x330_cf9e8068.jpg"/>
+   <img @click="toggleShow" src="//img1.qunarzz.com/sight/p0/1710/6f/6ff979b8c0f1f633a3.img.jpg_600x330_cf9e8068.jpg"/>
+   <gallary :imglist="imglist" 
+   	        @close="handleClose"
+   	        v-show="show"/>
   </div>
 </template>
 
@@ -10,8 +13,12 @@ export default {
   name: '',
   data () {
     return {
-      imglist:[]
+      imglist:[],
+      show:false
     }
+  },
+  components:{
+  	gallary
   },
    created(){
 		this.$http.get("http://localhost:3000/data",{
@@ -19,8 +26,17 @@ export default {
 					id:this.$route.params.id
 			}	
 		}).then((res)=>{
+			this.imglist=res.data.imglist
 			})
-		} 
+		},
+		methods:{
+			handleClose(){
+				this.show = false
+			},
+			toggleShow(){
+				this.show = true
+			}
+		}
 }
 </script>
 

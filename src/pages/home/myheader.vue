@@ -5,7 +5,6 @@
     	<span><i class="iconfont">&#xe632;</i></span>
     	<input type="text" placeholder="输入城市/景点/游玩主题" value="" />	
     </div>
-    
     <div class="hello_right">
     	<span class="hello_right_city">
     		<router-link to="/city">{{city}}</router-link>
